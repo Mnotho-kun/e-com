@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/E-com/styles.css" />
+    <title>E-com shop</title>
+  </head>
+  <body>
+    <!-- Links -->
+    <div class="wrapper">
+        <nav>
+            <ion-icon name="menu-outline" class="menu" id="menu-icon"></ion-icon>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/contact-us">Contact Us</a></li>
+              <ion-icon name="close-outline" class="close" id="close-icon"></ion-icon>
+            </ul>
+          
+            <div class="logo">
+              <p class="one">Femme</p>
+              <p>Wardrobe</p>
+            </div>
+          
+            <div class="icons">
+              <div class="search-container">
+                <ion-icon name="search" class="search" id="search-icon"></ion-icon>
+                <input
+                  type="text"
+                  class="search-input"
+                  id="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+          
+              <div class="cart-icon-container">
+                <ion-icon name="bag-handle" class="bag cart-bag-icon"></ion-icon>
+                <span id="cart-count" class="cart-count">0</span>
+              </div>
+
+              
+              <div id="sidebar" class="sidebar">
+                <div class="sidebar-header">
+                    <h2>Shopping Cart</h2>
+                    <button id="close-sidebar">X</button>
+                </div>
+                <!-- Cart Items Container -->
+                <div id="cart-sidebar" class="cart-sidebar">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+
+                            <!-- Subtotal Section -->
+                <div id="cart-subtotal" class="cart-subtotal">
+                    <p>Subtotal: $<span id="subtotal-amount">0.00</span></p>
+                </div>
+
+                   <!-- View Cart Button -->
+                <div class="view-cart-section">
+                    <a href="/view-cart" id="view-cart-button" class="view-cart-button">View Cart</a>
+                </div>
+            </div>
+          </nav>
+          
+
+      <section id="section1" class="section">
+        <div class="banner-text">
+          <p>Casual & Everyday</p>
+          <h1>Effortlessly blend comfort & style!</h1>
+          <p>
+            Effortlessly blend comfort and style with our Casual & Everyday
+            collection, featuring cozy sweaters, versatile denim, laid-back
+            tees, and relaxed-fit joggers for your everyday adventures
+          </p>
+          <button>View Collection</button>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <h1>Most Popular</h1>
+        <ul class="product-list">
+          <li
+            data-popularity="3"
+            data-rating="4.5"
+            data-date="2023-01-05"
+            data-price="145.50"
+          >
+            <div class="image-container">
+              <a
+                href="/purchase-page-1?product=BohemianRhapsodyAttire"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-1.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Bohemian Rhapsody Attire"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Casual</p>
+              <a
+                href="/purchase?product=BohemianRhapsodyAttire"
+                class="description"
+                >Bohemian Rhapsody Attire</a
+              >
+              <p><b>$145.50</b></p>
+              <div class="measurements">
+                <button class="measurement-box">S</button>
+                <button class="measurement-box">M</button>
+                <button class="measurement-box">L</button>
+                <button class="measurement-box">XL</button>
+              </div>
+              <div class="color-choices">
+                <label for="color-picker" class="color-label"
+                  >Customize your outfit:</label
+                >
+                <input type="color" id="color-picker" value="#000000" />
+              </div>
+            </div>
+          </li>
+          <li
+            data-popularity="5"
+            data-rating="4.8"
+            data-date="2023-05-22"
+            data-price="175.00"
+          >
+            <div class="image-container">
+              <a
+                href="/purchase-page-2?product=MidnightGalaMaxiDress"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-2.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Midnight Gala Maxi Dress"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Evening Dresses</p>
+              <a
+                href="/purchase.html?product=MidnightGalaMaxiDress"
+                class="description"
+                >Midnight Gala Maxi Dress</a
+              >
+              <p><b>$175.00</b></p>
+              <div class="measurements">
+                <button class="measurement-box">S</button>
+                <button class="measurement-box">M</button>
+                <button class="measurement-box">L</button>
+                <button class="measurement-box">XL</button>
+              </div>
+              <div class="color-choices">
+                <label for="color-picker" class="color-label"
+                  >Customize your outfit:</label
+                >
+                <input type="color" id="color-picker" value="#000000" />
+              </div>
+            </div>
+          </li>
+          <li
+            data-price="125.00"
+            data-rating="5.0"
+            data-date="2023-04-10"
+            data-popularity="10"
+          >
+            <div class="image-container">
+              <a
+                href="/purchase-page-3?product=PowerSuitEnsemble"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-3.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Power Suit Ensemble"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Casual</p>
+              <a
+                href="/purchase-page-3?product=PowerSuitEnsemble"
+                class="description"
+                >Power Suit Ensemble</a
+              >
+              <p><b>$125.00</b></p>
+              <div class="measurements">
+                <button class="measurement-box">S</button>
+                <button class="measurement-box">M</button>
+                <button class="measurement-box">L</button>
+                <button class="measurement-box">XL</button>
+              </div>
+              <div class="color-choices">
+                <label for="color-picker" class="color-label"
+                  >Customize your outfit:</label
+                >
+                <input type="color" id="color-picker" value="#000000" />
+              </div>
+            </div>
+          </li>
+          <li
+            data-price="109.99"
+            data-rating="3.8"
+            data-date="2023-11-01"
+            data-popularity="8"
+          >
+            <div class="image-container">
+              <a
+                href="/purchase-page-4?product=ProfessionalPinestripBlazer"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-4.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Professional Pinestrip Blazer"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Activewear</p>
+              <a
+                href="/E-com/Purchase/Purchase-Page-4.html?product=ProfessionalPinestripBlazer"
+                class="description"
+                >Professional Pinestrip Blazer</a
+              >
+              <p><b>$109.99</b></p>
+              <div class="measurements">
+                <button class="measurement-box">S</button>
+                <button class="measurement-box">M</button>
+                <button class="measurement-box">L</button>
+                <button class="measurement-box">XL</button>
+              </div>
+              <div class="color-choices">
+                <label for="color-picker" class="color-label"
+                  >Customize your outfit:</label
+                >
+                <input type="color" id="color-picker" value="#000000" />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section3" class="section">
+        <div class="image-right">
+          <img src="/background/models/Display-model-6.jpg" alt="" />
+          <p>Explore our exquisite Bag Collection now!</p>
+          <button class="btn">View Collection</button>
+        </div>
+      </section>
+
+      <section id="section4" class="section">
+        <div class="text-half">
+          <p>Work & Office Attire</p>
+          <h1>Professional Pinstripe Blazers Collection</h1>
+          <p>
+            Elevate your workwear with our Professional Pinstripe Blazers
+            Collection, where tailored sophistication meets modern confidence
+            for a powerfully polished office look.
+          </p>
+          <button class="btn">Shop Now</button>
+        </div>
+        <div class="image-half">
+          <img
+            src="/background/Model-bg-5.jpg"
+            alt="Professional pinstripe blazers"
+          />
+        </div>
+      </section>
+
+      <section id="section5" class="section">
+        <div class="img-left">
+          <img src="/background/models/Display-model-2.jpg" alt="" />
+          <p>Discover the allure of fashion reinvented!</p>
+          <p>
+            ive into a world of style with our latest collection! Shop now and
+            redefine your wardrobe narrative!
+          </p>
+          <button>Shop Now</button>
+        </div>
+      </section>
+
+      <section id="section6" class="section">
+        <h1>Newest Products</h1>
+        <ul class="product-list">
+          <li
+            data-price="124.90"
+            data-rating="5"
+            data-date="2023-02-07"
+            data-popularity="9"
+          >
+            <div class="image-container">
+              <a
+                href="/E-com/Purchase/Purchase-Page-5.html?product=TimelessClassicCollection"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-5.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Timeless Classic Collection"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Work & Office</p>
+              <a
+                href="/E-com/Purchase/Purchase-Page-5.html?product=TimelessClassicCollection"
+                class="description"
+                >Timeless Classic Collection</a
+              >
+              <p><b>$124.90</b></p>
+            </div>
+          </li>
+          <li
+            data-price="250.00"
+            data-rating="4.8"
+            data-date="2023-10-10"
+            data-popularity="5"
+          >
+            <div class="image-container">
+              <a
+                href="/E-com/Purchase/Purchase-Page-6.html?product=RelaxedFitJogger"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-7.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Relaxed Fit Jogger"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two">Work & Office</p>
+              <a
+                href="/E-com/Purchase/Purchase-Page-6.html?product=RelaxedFitJogger"
+                class="description"
+                >Relaxed Fit Jogger</a
+              >
+              <p><b>$250.00</b></p>
+            </div>
+          </li>
+          <li
+            data-price="224.95"
+            data-rating="4.0"
+            data-date="2023-05-20"
+            data-popularity="7"
+          >
+            <div class="image-container">
+              <a
+                href="/E-com/Purchase/Purchase-Page-7.html?product=UrbanChicEnsemble"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-10.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Urban Chic Ensemble"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two" class="description">Evening Dresses</p>
+              <a
+                href="/E-com/Purchase/Purchase-Page-7.html?product=UrbanChicEnsemble"
+                >Urban Chic Ensemble</a
+              >
+              <p><b>$224.95</b></p>
+            </div>
+          </li>
+          <li
+            data-price="119.95"
+            data-rating="4.6"
+            data-date="2023-09-08"
+            data-popularity="6"
+          >
+            <div class="image-container">
+              <a
+                href="/E-com/Purchase/Purchase-Page-8.html?product=WeekendWanderlustWardrobe"
+              >
+                <div class="model-wrapper">
+                  <img
+                    id="model-image"
+                    src="/background/models/Display-model-11.jpg"
+                    alt="Model 1"
+                  />
+
+                  <ion-icon
+                    name="bag-handle"
+                    class="bag-handle"
+                    data-item-name="Weekend Wanderlust Wardrobe"
+                  ></ion-icon>
+                </div>
+              </a>
+              <p class="two" class="description">Activewear</p>
+              <a
+                href="/E-com/Purchase/Purchase-Page-8.html?product=WeekendWanderlustWardrobe"
+                >Weekend Wanderlust Wardrobe</a
+              >
+              <p><b>$119.95</b></p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section7" class="section">
+        <div class="containers">
+          <div class="stars">
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </div>
+
+          <p>
+            <b
+              >”FemmeWardrobe is my fashion sanctuary! The curated collection
+              effortlessly blends chic trends with timeless elegance, making
+              every purchase a delightful discovery. The quality of their pieces
+              is unmatched, and I appreciate the brand's commitment to
+              sustainable fashion. What truly sets FemmeWardrobe apart is their
+              customer-centric approach.”</b
+            >
+          </p>
+          <p>Sarah M., Devoted FemmeWardrobe Fan</p>
+        </div>
+      </section>
+
+      <section id="section8" class="section">
+        <ul class="features-list">
+          <li>
+            <ion-icon name="lock-closed"></ion-icon>
+            <p>Secure Payments</p>
+            <p>
+              Shop with confidence knowing that your transactions are
+              safeguarded.
+            </p>
+          </li>
+          <li>
+            <ion-icon name="cart"></ion-icon>
+            <p>Free Shipping</p>
+            <p>
+              Shopping with no extra charges – savor the liberty of
+              complimentary shipping on every order.
+            </p>
+          </li>
+          <li>
+            <ion-icon name="reload"></ion-icon>
+            <p>Easy Returns</p>
+            <p>
+              With our hassle-free Easy Returns, changing your mind has never
+              been more convenient.
+            </p>
+          </li>
+          <li>
+            <ion-icon name="location"></ion-icon>
+            <p>Order Tracking</p>
+            <p>
+              Stay in the loop with our Order Tracking feature – from checkout
+              to your doorstep.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="section9" class="section">
+        <div class="text-right">
+          <p>Explore</p>
+          <p>Elevate your wardrobe, embrace timeless style!</p>
+          <p>
+            Explore our collections today and experience the joy of fashion.
+            Shop now for the epitome of chic sophistication!
+          </p>
+          <button>Shop Now</button>
+        </div>
+      </section>
+
+      <!-- Voice Command Avatar -->
+<div class="voice-command-avatar" id="voice-avatar">
+  <img src="/E-com/504Younger_Yamamoto.webp" alt="Voice Command Avatar" id="avatar-img" />
+  <div class="ripple-effect"></div>
+</div>
+
+
+      <footer>
+        <ul class="menu-list">
+          <p>Menu</p>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <ul class="category-list">
+          <p>Categories</p>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Work & Office</a></li>
+          <li><a href="#">Active Wear</a></li>
+          <li><a href="#">Evening Dresses</a></li>
+        </ul>
+
+        <ul class="resource-list">
+          <p>Resources</p>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Live Chat</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+
+        <ul class="social-list">
+          <p>Social Media</p>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+
+        <div class="line-divider"></div>
+
+        <p class="copyright">
+          Copyright &copy; 2024 Clothing Store | Powered by Clothing Store
+        </p>
+      </footer>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/E-com/scripts.js"></script>
+  </body>
+</html>

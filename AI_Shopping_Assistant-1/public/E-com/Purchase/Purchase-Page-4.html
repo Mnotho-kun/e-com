@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/E-com/Purchase/StyleP.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Purchase Page 4</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav>
+        <ion-icon name="menu-outline" class="menu" id="menu-icon"></ion-icon>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/contact-us">Contact Us</a></li>
+          <ion-icon
+            name="close-outline"
+            class="close"
+            id="close-icon"
+          ></ion-icon>
+        </ul>
+
+        <div class="logo">
+          <p class="one">Femme</p>
+          <p>Wardrobe</p>
+        </div>
+
+        <div class="icons">
+          <div class="search-container">
+            <ion-icon name="search" class="search" id="search-icon"></ion-icon>
+            <input
+              type="text"
+              class="search-input"
+              id="search-input"
+              placeholder="Search..."
+            />
+          </div>
+
+          <div class="cart-icon-container">
+            <ion-icon name="bag-handle" class="bag"></ion-icon>
+            <span id="cart-count" class="cart-count">0</span>
+          </div>
+        </div>
+      </nav>
+
+      <section id="section1" class="section">
+        <div class="container">
+          <div class="zoom-image">
+            <img
+              src="/background/models/Display-model-1.jpg"
+              class="model-image"
+              alt="Model"
+            />
+            <img src="/E-com/Purchase/search-icon.svg" class="search-icon" />
+            <div class="magnifier"></div>
+          </div>
+
+          <div class="text-container">
+            <ul class="breadcrumb">
+              <li><a href="#">Home /</a></li>
+              <li><a href="#">Activewear /</a></li>
+              <li><p>Professional Pinestrip Blazer</p></li>
+            </ul>
+
+            <div class="clothing-info">
+              <a href="#">Activewear</a>
+              <p>Professional Pinestrip Blazer</p>
+            </div>
+
+            <div class="price-container">
+              <p><b class="price">$109.99 – $139.99</b> & Free Shipping</p>
+              <p>
+                From the office to high-powered meetings, our Bohemian Rhapsody
+                Attire is more than clothing; it’s a statement of strength,
+                ambition, and unwavering elegance, ensuring you stride into any
+                professional setting with unparalleled grace and authority.
+              </p>
+            </div>
+
+            <div class="measurements">
+              <button class="measurement-box" data-price-increase="0">S</button>
+              <button class="measurement-box" data-price-increase="10">
+                M
+              </button>
+              <button class="measurement-box" data-price-increase="20">
+                L
+              </button>
+              <button class="measurement-box" data-price-increase="30">
+                XL
+              </button>
+            </div>
+
+            <div class="color-choices">
+              <label for="color-picker" class="color-label"
+                >Customize your outfit:</label
+              >
+              <input type="color" id="color-picker" value="#000000" />
+            </div>
+
+            <div class="price-increase">
+              <p id="price-increase"><b>$109.99</b></p>
+              <div class="Add-items">
+                <button class="quantity-button" id="minus">-</button>
+                <input type="text" id="quantity" value="1" readonly />
+                <button class="quantity-button" id="plus">+</button>
+              </div>
+              <div class="actions">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="view-cart">View Cart</button>
+              </div>
+            </div>
+
+            <div class="payment-methods">
+              <div class="category">
+                <p>SKU:N/A</p>
+                <p>Category: <a href="#">Activewear</a></p>
+              </div>
+              <div class="payments">
+                <p>Guaranteed Safe Checkout</p>
+                <div class="payment-icons">
+                  <img src="/E-com/Purchase/visa.svg" alt="" />
+                  <img src="/E-com/Purchase/mastercard.svg" alt="" />
+                  <img src="/E-com/Purchase/amex.svg" alt="" />
+                  <img src="/E-com/Purchase/discover.svg" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="section2" class="section">
+        <div class="container">
+          <div class="info-container">
+            <div class="info-1" onclick="toggleDescription1()">
+              <p>Description</p>
+            </div>
+            <div class="info-2" onclick="toggleDescription2()">
+              <p>Additional Information</p>
+            </div>
+            <div class="info-3" onclick="toggleDescription3()">
+              <p>Reviews <span id="review-count">0</span></p>
+            </div>
+          </div>
+          <div class="description-info-1" id="description-info">
+            <p>
+              Step into the spotlight with our Midnight Gala Maxi Dress, a
+              mesmerizing ensemble that embodies elegance and allure. This
+              exquisite dress is designed to make a statement at every soirée,
+              featuring a flowing silhouette that gracefully cascades to the
+              floor. The deep midnight hue, combined with subtle detailing and a
+              touch of glamour, creates a look that is both timeless and
+              captivating. Whether you’re attending a gala, a wedding, or a
+              special event, the Midnight Gala Maxi Dress ensures you’ll be the
+              epitome of sophistication, leaving a trail of enchantment wherever
+              you go.
+            </p>
+          </div>
+
+          <div class="additional-info-2">
+            <div class="info-item size-info">
+              <p class="info-label">Size</p>
+              <div class="info-values">
+                <p class="info-value">S</p>
+                <p class="info-value">M</p>
+                <p class="info-value">L</p>
+                <p class="info-value">XL</p>
+              </div>
+            </div>
+            <div class="info-item color-info">
+              <p class="info-label">Color</p>
+              <div class="info-values">
+                <p class="info-value">Red</p>
+                <p class="info-value">Blue</p>
+                <p class="info-value">Green</p>
+                <p class="info-value">Black</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="review-form" class="Reviews-info-3">
+            <p>There are no reviews yet</p>
+
+            <div class="Message-box">
+              <p id="review-placeholder">Be the first to review "<span id="product-name"></span>"</p>
+              <p>
+                Your email address will not be published. Required fields are
+                marked *
+              </p>
+
+              <p>Your rating *</p>
+              <div class="rating-stars">
+                <i class="fa-solid fa-star" data-value="1"></i>
+                <i class="fa-solid fa-star" data-value="2"></i>
+                <i class="fa-solid fa-star" data-value="3"></i>
+                <i class="fa-solid fa-star" data-value="4"></i>
+                <i class="fa-solid fa-star" data-value="5"></i>
+              </div>
+
+              <p>Your review *</p>
+              <textarea id="review-textarea" placeholder="Your Review" required></textarea>
+
+              <div class="name-email-container">
+                <div class="name-field">
+                  <p>Name *</p>
+                  <input type="text" id="review-name" placeholder="Name" required />
+                </div>
+                <div class="email-field">
+                  <p>Email *</p>
+                  <input type="email" id="review-email" placeholder="Email" required />
+                </div>
+              </div>
+
+              <div class="checkbox-container">
+                <input type="checkbox" id="save-info" />
+                <label for="save-info">
+                  <p>
+                    Save my name, email, and website in this browser for the
+                    next time I comment.
+                  </p>
+                </label>
+              </div>
+
+              <button type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+      </section>
+
+
+      <section id="section3" class="section">
+        <div id="view-reviews-section" class="view-reviews-section">
+          <h3>View Reviews</h3>
+          <button id="sort-new-old" class="sort-button">Sort: New to Old</button>
+          <button id="sort-old-new" class="sort-button">Sort: Old to New</button>
+          <ul id="reviews-list" class="reviews-list"></ul>
+        </div>
+      </section>
+
+
+      <section id="section4" class="section">
+        <h1>Related Products</h1>
+        <ul id="related-products-list" class="product-list"></ul>
+      </section>
+
+      <footer>
+        <ul class="menu-list">
+          <p>Menu</p>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        <ul class="category-list">
+          <p>Categories</p>
+          <li><a href="#">Casual</a></li>
+          <li><a href="#">Work & Office</a></li>
+          <li><a href="#">Active Wear</a></li>
+          <li><a href="#">Evening Dresses</a></li>
+        </ul>
+
+        <ul class="resource-list">
+          <p>Resources</p>
+          <li><a href="#">Contact Support</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Live Chat</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+
+        <ul class="social-list">
+          <p>Social Media</p>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+
+        <div class="line-divider"></div>
+
+        <p class="copyright">
+          Copyright &copy; 2024 Clothing Store | Powered by Clothing Store
+        </p>
+      </footer>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script src="/E-com/Purchase/ScriptP-4.js"></script>
+  </body>
+</html>

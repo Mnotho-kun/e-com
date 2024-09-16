@@ -1,0 +1,679 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Signika:wght@300..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika';
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body cover full height */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body{
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Gradient overlay */
+    url(/background/Model-bg-9.jpg) no-repeat center center; /* Center and cover background image */
+background-size: cover;
+}   
+
+.wrapper {
+    min-height: 100vh;
+   /* Cover the entire section */
+    color: #fff; /* Change text color to white */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    position: relative;
+    
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+nav ul {
+    display: flex;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start; /* Align links to the left */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo .one {
+    font-size: 0.8em;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons ion-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust icon color */
+}
+
+.search, .bag {
+    color: #fff;
+}
+
+.cart-icon-container {
+    position: relative; /* Container for positioning the cart count */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.cart-icon-container .bag {
+    font-size: 1.5em; /* Adjust size if needed */
+}
+
+.search-container {
+    position: relative; /* Container for positioning the search input and icon */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    z-index: 10; /* Ensure the input is above other elements */
+}
+
+.search-container.active .search-input {
+    width: 200px; /* Adjust width as needed */
+    opacity: 1;
+}
+
+.search {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff; /* Default color */
+    transition: color 0.3s ease; /* Smooth color transition */
+    position: absolute;
+    right: 0.5em; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+}
+
+.menu,
+.close {
+    display: none; /* Hide menu and close icons */
+}
+
+.search-container.active .search {
+    color: rgb(0, 0, 0); /* Color when active */
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Sidebar starts hidden off-screen */
+    width: 400px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.5s ease-in-out; /* Smooth transition for sliding */
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    color: #000;
+}
+
+.sidebar.visible {
+    right: 0; /* Slide the sidebar into view */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#close-sidebar {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Cart sidebar styles */
+.cart-sidebar {
+    margin-top: 20px; /* Add margin to prevent overlap with header */
+    overflow-y: auto; /* Allow scrolling for cart items */
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    max-height: calc(100vh - 100px); /* Adjust to fit within sidebar height */
+}
+
+/* Cart item styling */
+.cart-item {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-size,
+.cart-item-price,
+.cart-item-quantity {
+    font-size: 0.9em;
+    color: #555;
+}
+
+#section1 {
+    position: relative; /* Ensure the text is positioned relative to the section */
+  
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: white; /* Text color for contrast, adjust as needed */
+    text-align: center; /* Center text alignment */
+}
+
+#section1 h1{
+    font-size: 3.5em;
+}
+
+#section1 h1, .section p {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    margin-bottom: 20px;
+}
+
+#section1 p{
+    font-size: 16px;
+}
+
+/* SECTION 1-5 */
+#section1-5 {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding-top: 50px;
+    color: #000;
+}
+
+.view-cart-content{
+    margin: auto;
+    align-items: center;
+}
+
+.view-cart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    border-top: 2px solid #000;
+    padding-top: 20px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    text-align: center;
+}
+
+.view-cart-container p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word
+}
+
+.view-cart-container button {
+    padding: 10px 40px;
+    border: 1px solid #000;
+    background-color: transparent;
+    color: #000000;
+    font-size: 16px;
+    cursor: pointer;
+    transition:  0.5s ease;
+    margin-top: 5px;
+}
+
+.view-cart-container button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+
+
+#cart-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0;
+    max-height: 200px;
+     overflow-y: auto;
+     width: 100%;
+     margin: auto;
+     text-align: center;
+}
+
+#cart-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#cart-list li:last-child {
+    border-bottom: none;
+}
+
+.divider {
+    width: 100%;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+/* SECTION 2 */
+
+#section2{
+    background: #fff;
+    padding: 0; /* Removes any default padding from the section */
+    margin: 0; /* Removes any default margin from the section */
+    padding-top: 50px;
+    padding-bottom: 100px;
+}
+
+.sorting {
+    display: flex; /* Enables flexbox */
+    justify-content: space-between; /* Pushes items to opposite sides */
+    align-items: flex-start; /* Aligns items at the top */
+    padding: 0.5rem; /* Adds padding for spacing */
+    width: 100%; /* Ensures the width is full */
+    padding-bottom: 30px;
+}
+
+.sorting  p{
+    color: #000;
+}
+
+.dropdown-menu {
+    padding: 0.5rem; /* Adds padding for better appearance */
+    border: 1px solid #ccc; /* Light border around the dropdown */
+    font-size: 1rem; /* Adjusts font size */
+}
+
+.product-list {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line if necessary */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.product-list li {
+    position: relative;
+    width: 22%; /* Adjust the width of each item (adjust as needed) */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width */
+    margin-bottom: 20px; /* Space below each item */
+    text-align: center; /* Center-align text */
+}
+
+.product-list img {
+    max-width: 100%; /* Ensure images scale to fit their containers */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline spacing issues */
+    margin: 0 auto; /* Center-align images */
+}
+
+.product-list p, .product-list a {
+    margin: 5px 0; /* Space between text elements */
+    color: #000;
+}
+
+.product-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Set link color (adjust as needed) */
+}
+
+.product-list .two{
+    color: #d3d3d3;
+}
+
+
+.bag-handle {
+    position: absolute; /* Absolute positioning within the list item */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background-color: rgb(255, 255, 255); /* White background color */
+    padding: 5px; /* Space around the icon */
+    border-radius: 50%; /* Make the background circular */
+    color: #000000; /* Icon color (adjust as needed) */
+    font-size: 24px; /* Adjust icon size */
+    display: none; /* Initially hide the icon */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for visibility */
+}
+
+.product-list li:hover .bag-handle {
+    display: block; /* Show the icon when hovering over the list item */
+    opacity: 1; /* Fully visible on hover */
+    visibility: visible; /* Ensure the icon is clickable */
+
+}
+
+.measurements,
+.color-choices  {
+    display: flex; /* Align boxes in a row */
+    justify-content: center; /* Center the boxes */
+    margin-top: 10px; /* Space above the measurement boxes */
+}
+
+.measurement-box  {
+    background-color: #ffffff; /* Light background color */
+    border: 1px solid #ddd; /* Border color */
+    color: #000; /* Text color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the boxes */
+    margin: 0 5px; /* Space between the boxes */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s ease, color 0.3s ease, outline 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.measurement-box:hover,
+.color-box:hover,
+.measurement-box:focus,
+.color-box:focus {
+    background-color: #ffffff; /* Darker background on hover */
+    outline: 1px solid black; /* Black outline on focus */
+    outline-offset: 2px; /* Space between the outline and the box */
+}
+
+.color-box {
+    width: 20px; /* Size of the color boxes */
+    height: 20px; /* Size of the color boxes */
+    border-radius: 50%; /* Circular color boxes */
+    border: 1px solid #ddd; /* Border color */
+    margin: 0 8px; /* Increased spacing between color boxes */
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.color-box:focus, .color-box:hover {
+    border-color: #000; /* Outline on focus or hover */
+}
+
+.color-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Adjust color as needed */
+}
+
+#color-picker {
+    width: 60px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    padding: 0; /* Remove default padding */
+    border: none; /* Remove default border */
+    -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+}
+
+
+
+.image-container {
+    position: relative; /* To position the overlay on top of the image */
+    display: inline-block; /* Keep the image and overlay together */
+}
+
+.model-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+footer {
+    display: flex; /* Make the footer a flex container */
+    justify-content: space-between; /* Evenly space out the child elements */
+    flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+    padding: 20px; /* Adds some padding around the footer */
+    background-color: #f8f8f8; /* Optional: Footer background color */
+    width: 100%;
+    padding-top: 60px;
+}
+
+footer ul {
+    list-style-type: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    text-align: left; /* Aligns text to the left */
+    flex: 1; /* Allows each list to take up equal space */
+    min-width: 150px; /* Sets a minimum width for each list */
+    margin-right: 12.3%;
+    padding-bottom: 30px;
+}
+
+footer ul p {
+    font-weight: bold; /* Makes section titles bold */
+    margin-bottom: 25px; /* Adds spacing below section titles */
+    color: #000;
+}
+
+footer ul li {
+    margin: 5px 0; /* Adds vertical spacing between list items */
+}
+
+footer ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #bbbbbb; /* Text color for links */
+    transition: .5s ease;
+}
+
+footer ul li a:hover {
+    color: #272727; /* Changes link color on hover */
+}
+
+.line-divider {
+    height: 1px; /* Sets the height of the line */
+    background-color: #ccc; /* Sets the color of the line (gray) */
+    margin: 20px 0; /* Adds vertical spacing around the line */
+    width: 100%; /* Makes the line span the full width of its container */
+}
+
+.copyright {
+    text-align: center; /* Centers the text within the <p> tag */
+    margin: auto; /* Removes default margin */
+    padding: 10px 0; /* Adds padding above and below the text */
+    color: #333; /* Sets the text color */
+    font-size: 14px; /* Sets a reasonable font size for the copyright text */
+
+}
+
+@media (max-width: 768px){
+    .icons {
+        display: none;
+    }
+    
+    .menu {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        margin-right: 10px;
+    }
+    
+    .close {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-links {
+        position: fixed; /* Fixed positioning for full-page coverage */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw; /* Full viewport width */
+        background-color: #333; /* Background color */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        padding: 0;
+        box-sizing: border-box; /* Ensure padding is included in width */
+        transform: translateX(-100%); /* Initially off-screen */
+        transition: transform 0.3s ease;
+        z-index: 14;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .menu,
+    .close {
+        z-index: 10;
+    }
+
+    /* View Cart */
+    .view-cart-container{
+        width: 100%;
+    }
+
+    .view-cart-button{
+        width: 200px;
+    }
+
+
+    /* SECTION 2 */
+    .sorting {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+        gap: 10px; /* Space between stacked elements */
+    }
+
+    .dropdown-menu {
+        width: 100%; /* Full width of the parent container */
+    }
+
+    .product-list .image-container img {
+        width: 90%;
+        height: 80%;
+     }
+ 
+     .product-list .description{
+     font-size: .8em;
+     }
+ 
+     .product-list li {
+         flex: 1 1 calc(50% - 10px); /* Three items per row on medium screens */
+     }
+     .product-list {
+         justify-content: center; /* Center items on smaller screens */
+     }
+     
+      /* FOOTER */
+    footer {
+        flex-direction: column; /* Stacks the footer content vertically */
+        align-items: center; /* Centers the content horizontally */
+        text-align: center; /* Centers the text */
+    }
+
+    footer ul {
+        text-align: center; /* Centers the list items */
+        margin-right: 0; /* Removes right margin */
+        margin-bottom: 20px; /* Adds some space between each list */
+    }
+
+    footer ul p {
+        margin-bottom: 15px; /* Adjusts spacing below section titles */
+    }
+
+    footer ul li {
+        margin: 10px 0; /* Increases spacing between list items */
+    }
+
+    .line-divider {
+        margin: 20px auto; /* Centers the divider line */
+    }
+
+    .copyright {
+        font-size: 12px; /* Adjusts font size for mobile readability */
+        padding-top: 20px; /* Adds top padding */
+    }
+}

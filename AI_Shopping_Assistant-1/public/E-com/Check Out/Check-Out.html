@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/E-com/Check Out/StyleC.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://www.paypal.com/sdk/js?client-id=AfLxG_AVdQlW2kJYg73Ci4P7hrV7Sw4zk0VAxNkF_lKbKJRdueaZ5eN3xgtNVMkcxWhS2lqX2ielYAot&currency=USD"></script>
+    <title>Check Out Page</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <ion-icon name="menu-outline" class="menu" id="menu-icon"></ion-icon>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/about-us">About Us</a></li>
+              <li><a href="/contact-us">Contact Us</a></li>
+              <ion-icon name="close-outline" class="close" id="close-icon"></ion-icon>
+            </ul>
+          
+            <div class="logo">
+              <p class="one">Femme</p>
+              <p>Wardrobe</p>
+            </div>
+          
+            <div class="icons">
+              <div class="search-container">
+                <ion-icon name="search" class="search" id="search-icon"></ion-icon>
+                <input
+                  type="text"
+                  class="search-input"
+                  id="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+          
+              <div class="cart-icon-container">
+                <ion-icon name="bag-handle" class="bag cart-bag-icon"></ion-icon>
+                <span id="cart-count" class="cart-count">0</span>
+              </div>
+
+         </nav>   
+         
+         
+         <section id="section1" class="section">
+            <h1>Check Out</h1>
+            <div class="check-out-Coupon">
+                <p>Have a Coupon? <span id="enter-coupon"><b>Click here to enter your code</b></span></p>
+                <!-- Hidden Coupon Input and Button -->
+                <div id="coupon-input-container" style="display: none;">
+                    <input type="text" id="coupon-input" placeholder="Enter code here">
+                    <button id="apply-coupon-btn">Apply Coupon</button>
+                    <p id="generated-coupon-code"></p>
+                    <p id="coupon-timer"></p>
+                </div>
+            </div>
+        </section>
+        
+        
+
+         <section id="section1-5" class="section">
+            <div class="Error-message" style="display: none;">
+                <p id="error-text"></p>
+            </div>
+        </section>
+
+         <div class="container">
+
+             <section id="section2" class="section">
+                <h1>Billing Details</h1>
+                <div class="Billing-info">
+                    <div class="Name-info">
+                        <div class="input-group">
+                            <label for="first-name" class="required-label">First Name</label>
+                            <input type="text" id="first-name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="last-name" class="required-label">Last Name</label>
+                            <input type="text" id="last-name" required>
+                        </div>
+                    </div>
+                  
+                    <div class="other-info">
+                      <label for="company-name">Company Name (Optional)</label>
+                      <input type="text" id="company-name">
+                  
+                      <label for="country-region" class="required-label">Country/Region</label>
+                    <select id="country-region" class="country-dropdown" required>
+                        <option value="">Select a country...</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="India">India</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                  
+                    <label for="street-address" class="required-label">Street address</label>
+                    <input type="text" id="street-address" placeholder="House Number and Street Name" required>
+                    <input type="text" id="street-address-2" placeholder="Apartment, suite, unit, etc. (Optional)">
+                    
+                    <label for="town-city" class="required-label">Town/City</label>
+                    <input type="text" id="town-city" required>
+                    
+                    <label for="state" class="required-label">State</label>
+                    <input type="text" id="state" required>
+                    
+                    <label for="zip-code" class="required-label">Zip Code</label>
+                    <input type="text" id="zip-code" required>
+                    
+                    <label for="phone" class="required-label">Phone</label>
+                    <input type="tel" id="phone" required>
+                    
+                    <label for="email" class="required-label">Email</label>
+                    <input type="email" id="email" required>
+                    </div>
+
+
+                    <h1>Additional Information</h1>
+                    <p>Order notes (optional)</p>
+                    <textarea placeholder="Notes about your order e.g. special notes for delivery"></textarea>
+                  </div>
+             </section>
+
+
+            
+
+
+             <section id="section3" class="section">
+                <h1>Your Order</h1>
+
+                <div class="Order-details">
+                    <div class="headings-container">
+                        <div class="Products-heading">
+                            <p>Product</p>
+                        </div>
+    
+                        <div class="Subtotals-heading">
+                            <p>Subtotal</p>
+                        </div>
+                    </div>
+
+                    <div id="Order-items" class="Order-items">
+                        <!-- Cart items will be dynamically inserted here -->
+                    </div>
+
+                    <div class="Subtotal">
+                        <p> <span id="subtotal-amount">$0.00</span></p>
+                        <!-- <p>Total: <span id="total-amount">$0.00</span></p> -->
+                    </div>
+
+
+                    <div class="No-product" style="display: none;">
+                        <p>Sorry, it seems that there are no available payment methods. Please contact us if you require assistance or wish to make alternate arrangements.</p>
+                    </div>
+
+                        <!-- Payment Methods Section -->
+                        <div class="Payment-methods" style="display: none;">
+                            <h2>Select Payment Method</h2>
+                            <select id="payment-method-select">
+                                <option value="">Choose a payment method...</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="mastercard">MasterCard</option>
+                                <option value="visa">VISA</option>
+                                <option value="amex">American Express (Amex)</option>
+                                <option value="discover">Discover</option>
+                                <option value="google-pay">Google Pay</option>
+                                <option value="amazon-pay">Amazon Pay</option>
+                            </select>
+                        </div>
+
+                        <!-- Payment Details Section -->
+                        <div id="payment-details" class="Payment-details" style="display: none;">
+                            <!-- Payment-specific details will be inserted here -->
+                        </div>
+
+                        <div id="paypal-button-container"></div>
+                    <button id="Place-order">Place Order</button>
+                </div>
+             </section>
+         </div>
+
+         <section id="confirmation-section" class="section" style="display: none;">
+            <h1 class="confirmation-message">Order Confirmation</h1>
+            <p class="confirmation-text">Your order has been placed successfully. Thank you for your purchase!</p>
+            <div class="tick-accent"> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            </div>
+            <p><a href="/" class="return-home-button">Return to Home</a></p>
+        </section>
+
+
+
+
+        <!-- Trigger Button for Assistant -->
+<button id="assistant-button">Open Assistant</button>
+
+ <!-- Assistant Chat Panel -->
+<div id="assistant-panel">
+  <div id="assistant-header">
+      <h3>Checkout Assistant</h3>
+      <button id="close-assistant" class="btn danger">X</button>
+  </div>
+  <div id="assistant-content">
+      <div class="avatar-container">
+          <img id="assistant-avatar" src="/E-com/504Younger_Yamamoto.webp" alt="Anime Avatar">
+          <div class="ripple-effect"></div>
+      </div>
+      <p>Hi! I can help fill out your checkout form. Please provide your payment details and allow location access.</p>
+      <div class="button-group">
+        <button id="start-assistant" class="btn primary">Get Started</button>
+        <button id="use-saved-details" class="btn secondary">Use Saved Details</button>
+    </div>
+  </div>
+</div>
+
+
+
+        <footer>
+            <ul class="menu-list">
+              <p>Menu</p>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+    
+            <ul class="category-list">
+              <p>Categories</p>
+              <li><a href="#">Casual</a></li>
+              <li><a href="#">Work & Office</a></li>
+              <li><a href="#">Active Wear</a></li>
+              <li><a href="#">Evening Dresses</a></li>
+            </ul>
+    
+            <ul class="resource-list">
+              <p>Resources</p>
+              <li><a href="#">Contact Support</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Live Chat</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+    
+            <ul class="social-list">
+              <p>Social Media</p>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Pinterest</a></li>
+            </ul>
+    
+            <div class="line-divider"></div>
+    
+            <p class="copyright">
+              Copyright &copy; 2024 Clothing Store | Powered by Clothing Store
+            </p>
+          </footer>
+    </div>
+
+
+
+
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script src="/E-com/Check Out/ScriptC.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <!-- Include Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

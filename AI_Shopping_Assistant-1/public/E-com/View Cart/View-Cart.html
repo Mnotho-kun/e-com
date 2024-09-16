@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/E-com/View Cart/StyleV.css">
+    <title>View Cart</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <ion-icon name="menu-outline" class="menu" id="menu-icon"></ion-icon>
+            <ul class="nav-links" id="nav-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/shop">About Us</a></li>
+              <li><a href="/contact-us">Contact Us</a></li>
+              <ion-icon name="close-outline" class="close" id="close-icon"></ion-icon>
+            </ul>
+          
+            <div class="logo">
+              <p class="one">Femme</p>
+              <p>Wardrobe</p>
+            </div>
+          
+            <div class="icons">
+              <div class="search-container">
+                <ion-icon name="search" class="search" id="search-icon"></ion-icon>
+                <input
+                  type="text"
+                  class="search-input"
+                  id="search-input"
+                  placeholder="Search..."
+                />
+              </div>
+          
+              <div class="cart-icon-container">
+                <ion-icon name="bag-handle" class="bag cart-bag-icon"></ion-icon>
+                <span id="cart-count" class="cart-count">0</span>
+              </div>
+
+          </nav>
+
+
+          <section id="section1" class="section">
+            <p>Cart</p>
+            <div class="Coupon-name-display">
+              
+            </div>
+        
+            <div id="cart-items">
+                <i class="fa-solid fa-shop"></i><p>Your cart is currently empty.</p>
+            </div> <!-- Make sure this ID matches in the JS code -->
+        
+            <p id="subtotal-amount">Subtotal: $0.00</p>
+        
+            <!-- Coupon Section (initially hidden) -->
+            <div id="coupon-section" style="display: none;">
+                <label for="coupon-code">Enter Coupon Code:</label>
+                <input type="text" id="coupon-code" placeholder="Enter coupon code">
+                <button id="apply-coupon">Submit Coupon</button>
+                <p id="coupon-message"></p>
+            </div>
+        
+            <button onclick="window.location.href='/shop'" class="returnHome">Return To Shop</button>
+        </section>
+
+        <section id="section2" class="section">
+          <div class="Cart-Tools-Container">
+            <h1>Cart Tools</h1>
+            <div class="Totals">
+              <p>Subtotal: </p> <!-- First p for subtotal -->
+              <p>Total: </p> <!-- Second p for total -->
+              <button id="proceed-to-checkout">Proceed To Checkout</button> <!-- Add an ID here -->
+            </div>
+          </div>
+        </section>
+          
+        
+          
+        
+    </div>
+
+
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+    <script src="/E-com/View Cart/ScriptV.js"></script>
+</body>
+</html>

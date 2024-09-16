@@ -1,0 +1,694 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Signika:wght@300..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika';
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body cover full height */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body{
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Gradient overlay */
+    url(/background/Model-bg-13.jpg) no-repeat center center; /* Center and cover background image */
+background-size: cover;
+}
+   
+
+.wrapper {
+    min-height: 100vh;
+   /* Cover the entire section */
+    color: #fff; /* Change text color to white */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    position: relative;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+nav ul {
+    display: flex;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start; /* Align links to the left */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo .one {
+    font-size: 0.8em;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons ion-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust icon color */
+}
+
+.search, .bag {
+    color: #fff;
+}
+
+.cart-icon-container {
+    position: relative; /* Container for positioning the cart count */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.cart-icon-container .bag {
+    font-size: 1.5em; /* Adjust size if needed */
+}
+
+.search-container {
+    position: relative; /* Container for positioning the search input and icon */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    z-index: 10; /* Ensure the input is above other elements */
+}
+
+.search-container.active .search-input {
+    width: 200px; /* Adjust width as needed */
+    opacity: 1;
+}
+
+.search {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff; /* Default color */
+    transition: color 0.3s ease; /* Smooth color transition */
+    position: absolute;
+    right: 0.5em; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+}
+
+.menu,
+.close {
+    display: none; /* Hide menu and close icons */
+}
+
+.search-container.active .search {
+    color: rgb(0, 0, 0); /* Color when active */
+}
+
+#section1 {
+    position: relative; /* Ensure the text is positioned relative to the section */
+   
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: white; /* Text color for contrast, adjust as needed */
+    text-align: center; /* Center text alignment */
+}
+
+#section1 h1{
+    font-size: 4.7em;
+}
+
+
+#section1 h1 {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    margin-bottom: 20px;
+}
+
+#section2{
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height as needed */
+    text-align: center;
+    color: #000;
+    text-wrap: wrap;
+}
+
+#section2 p:nth-child(1){
+    margin-bottom: 20px;
+}
+
+#section2 p:nth-child(2){
+    font-size: 1.7em;
+    width: 40%;
+    margin: auto;
+}
+
+#section3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 60px; /* Space between left and right sections */
+    background-color: #fff;
+    
+}
+
+.Message-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between form elements */
+}
+
+.Message-left input {
+    display: block; /* Ensure each input takes up its own line */
+    margin-bottom: 15px; /* Add bottom spacing for inputs */
+}
+
+.Message-left textarea {
+    display: block; /* Ensure textarea takes up its own line */
+    margin-bottom: 0; /* No additional bottom spacing for textarea */
+}
+
+.Message-left button {
+    display: block; /* Ensure button takes up its own line */
+    margin-top: 10px; /* Optional: Add top margin for spacing above button */
+}
+
+.Message-left input[type="text"],
+.Message-left input[type="email"],
+.Message-left textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none; /* Prevent resizing of the textarea */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+    outline: none;
+    transition: border-color 0.3s; /* Smooth transition for focus effect */
+}
+
+.Message-left textarea {
+    height: 200px; /* Increase this value to make the text area larger */
+    resize: vertical; /* Allow vertical resizing if needed */
+}
+
+
+.Message-left input[type="text"]:focus,
+.Message-left input[type="email"]:focus,
+.Message-left textarea:focus {
+    border-color: #ccc; /* Change border color on focus */
+}
+
+.Message-left button {
+    padding: 15px 20px;
+    background-color: transparent; /* Button background color */
+    color: #000000;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 16px;
+    transition:  .5s ease; /* Smooth transition for hover effect */
+    width: 120px;
+}
+
+.Message-left button:hover {
+    background-color: #000; /* Darker shade on hover */
+    color: #fff;
+}
+
+.right-info-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between each right section */
+}
+
+
+.info-right-1 {
+    display: flex;
+    justify-content: space-between; /* Distribute space between Phone and Email */
+    align-items: center; /* Align items vertically centered */
+    padding-bottom: 40px; /* Add padding below */
+    border-bottom: 1px solid #ccc; /* Bottom border under the Phone and Email */
+    margin-bottom: 10px; /* Space below the bordered section */
+}
+
+.info-right-1 p {
+    margin: 0; /* Remove default margin */
+    padding-right: 20px; /* Add spacing between Phone and Email */
+    font-size: 14px; /* Adjust font size if needed */
+}
+
+.info-right-1,
+.info-right-2,
+.social-media-right {
+    flex: 1;
+    text-align: left;
+    color: #000;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column; /* Stack the p tags within each item */
+}
+
+.info-item p {
+    margin: 0; /* Remove default margin */
+}
+
+.info-item p:first-of-type {
+    padding-bottom: 5px; /* Space between title and its content */
+    font-weight: bold; /* Optional: Make the title bold */
+}
+
+.info-item.phone {
+    margin-right: 20px; /* Adjust the spacing on the right side */
+}
+
+.info-item.phone p:first-of-type{
+    color: #ccc;
+}
+
+.info-item.phone p:last-of-type{
+    font-size: 1em;
+}
+
+.info-item.email {
+    margin-right: 100px; /* Push the Email section a bit more to the left */
+}
+
+.info-item.email p:first-of-type{
+    color: #ccc;
+}
+
+.info-item.email p:last-of-type{
+    font-size: 1em;
+}
+
+.social-media-right {
+    display: flex;
+    align-items: center; /* Align items vertically centered if needed */
+}
+
+.social-media-right p {
+    display: flex; /* Align icons horizontally */
+    gap: 10px; /* Adjust spacing between icons */
+    margin: 0; /* Remove default margin */
+    align-items: center;
+}
+
+.social-media-right a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+.social-media-right ion-icon {
+    font-size: 25px; /* Adjust icon size if needed */
+    padding: 5px; /* Add padding around each icon */
+    transition: transform 0.2s; /* Optional: Add a hover effect */
+    color: #000;
+}
+
+.social-media-right ion-icon:hover {
+    transform: scale(1.1); /* Optional: Slightly enlarge on hover */
+    color: #000;
+}
+
+
+.info-right-2 {
+    padding-bottom: 30px; /* Padding below the content */
+    border-bottom: 1px solid #ccc; /* Add a bottom border */
+    margin-bottom: 10px; /* Space below the bordered section */
+}
+
+.info-right-2 p {
+    margin: 0; /* Remove default margin */
+    padding-bottom: 5px; /* Optional: Space between p tags */
+}
+
+.info-right-2 p:first-of-type{
+    color: #ccc;
+}
+
+#section4{
+    background-color: #fff;
+}
+
+.google-maps {
+    text-align: center; /* Center align the map */
+    margin-top: 20px;
+}
+
+.google-maps iframe {
+    border: none; /* Remove border */
+    width: 100%; /* Make the map responsive */
+    max-width: 100%; /* Ensure it does not exceed container width */
+    height: 400px; /* Adjust height as needed */
+}
+
+#section5{
+    background-color: #ffffff;
+    padding-bottom: 50px;
+}
+
+.features-list {
+    display: flex; /* Use Flexbox to align items horizontally */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding from the ul */
+    margin: 0; /* Remove margin from the ul */
+    justify-content: space-evenly;
+    align-items: flex-start; /* Align items at the top */
+    gap: 10px; /* Add smaller space between items */
+    padding-top: 30px;
+    width: 100%;
+}
+
+.features-list li {
+    display: flex; /* Use Flexbox for internal layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items within each li */
+    text-align: center; /* Center the text */
+    width: 200px; /* Set a fixed width for consistency */
+    padding: 20px; /* Add padding around each li */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+.features-list li ion-icon {
+    font-size: 40px; /* Adjust icon size */
+    color: #000000; /* Set icon color */
+    margin-bottom: 10px; /* Add space below the icon */
+}
+
+.features-list li p {
+    margin: 10px -50px; /* Add space between paragraphs */
+    color: #000;
+}
+
+.features-list li p:first-of-type{
+    width: 100%;
+    font-size: 2.3em;
+}
+
+.features-list li p:last-of-type{
+    color: #aaa8a8;
+}
+
+#section6{
+    background: url(/background/Models-bg-8.jpg) no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 100px; /* Adds top padding to push content down */
+    padding-bottom: 120px; /* Optional: Adds some bottom padding for spacing */
+    position: relative; /* Ensures that the padding affects the content layout */
+}
+
+.text-right {
+    text-align: left; /* Aligns text inside the div to the left */
+    margin-left: auto; /* Keeps the div aligned to the right of the section */
+    padding: 20px; /* Adds padding for spacing */
+    max-width: 500px; /* Sets a maximum width for the div */
+}
+
+.text-right p {
+    margin: 10px 0; /* Adds spacing between paragraphs */
+    display: inline-block;
+}
+
+
+
+.text-right p:nth-child(2) {
+    font-size: 2.5em; /* Increases the font size of the middle paragraph */
+    font-weight: bold; /* (Optional) Makes the text bold for emphasis */
+  
+}
+
+
+.text-right button {
+    margin-top: 10px; /* Adds spacing above the button */
+    padding: 15px 10px; /* Adds padding inside the button */ /* Button background color */
+     /* Button text color */
+    cursor: pointer; /* Changes cursor on hover */
+    width: 150px;
+    transition: .5s ease;
+    border: 1px solid #ffffff;
+    color: #000;
+    background: #fff;
+}
+
+.text-right button:hover{
+    background: #000;
+    color: #fff;
+    border: 1px solid #000000;
+}
+
+footer {
+    display: flex; /* Make the footer a flex container */
+    justify-content: space-between; /* Evenly space out the child elements */
+    flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+    padding: 20px; /* Adds some padding around the footer */
+    background-color: #f8f8f8; /* Optional: Footer background color */
+    width: 100%;
+    padding-top: 60px;
+}
+
+footer ul {
+    list-style-type: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    text-align: left; /* Aligns text to the left */
+    flex: 1; /* Allows each list to take up equal space */
+    min-width: 150px; /* Sets a minimum width for each list */
+    margin-right: 12.3%;
+    padding-bottom: 30px;
+}
+
+footer ul p {
+    font-weight: bold; /* Makes section titles bold */
+    margin-bottom: 25px; /* Adds spacing below section titles */
+    color: #000;
+}
+
+footer ul li {
+    margin: 5px 0; /* Adds vertical spacing between list items */
+}
+
+footer ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #bbbbbb; /* Text color for links */
+    transition: .5s ease;
+}
+
+footer ul li a:hover {
+    color: #272727; /* Changes link color on hover */
+}
+
+.line-divider {
+    height: 1px; /* Sets the height of the line */
+    background-color: #ccc; /* Sets the color of the line (gray) */
+    margin: 20px 0; /* Adds vertical spacing around the line */
+    width: 100%; /* Makes the line span the full width of its container */
+}
+
+.copyright {
+    text-align: center; /* Centers the text within the <p> tag */
+    margin: auto; /* Removes default margin */
+    padding: 10px 0; /* Adds padding above and below the text */
+    color: #333; /* Sets the text color */
+    font-size: 14px; /* Sets a reasonable font size for the copyright text */
+
+}
+
+
+@media (max-width: 768px){
+
+    
+    .icons {
+        display: none;
+    }
+    
+    .menu {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        margin-right: 10px;
+    }
+    
+    .close {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-links {
+        position: fixed; /* Fixed positioning for full-page coverage */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw; /* Full viewport width */
+        background-color: #333; /* Background color */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        padding: 0;
+        box-sizing: border-box; /* Ensure padding is included in width */
+        transform: translateX(-100%); /* Initially off-screen */
+        transition: transform 0.3s ease;
+        z-index: 14;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .menu,
+    .close {
+        z-index: 10;
+    }
+
+    /* SECTION 1 */
+    #section1 h1{
+        font-size: 4em;
+    }
+
+    /* SECTION 2 */
+    #section2 .text-center p:last-of-type{
+        font-size: 1.4em;
+        width: 90%;
+    }
+
+    /* SECTION 3 */
+    #section3 {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 20px; /* Reduced gap for smaller screens */
+    }
+
+    .Message-left{
+        width: 100%;
+    }
+    .right-info-container {
+        margin-top: 20px; /* Add some margin on top when it stacks */
+        flex: none; /* Prevents expanding too wide */
+    }
+
+    .info-right-1 {
+        flex-direction: column; /* Stack phone and email vertically */
+        align-items: flex-start;
+        gap: 10px; /* Space between items */
+    }
+
+    /* SECTION 5 */
+    #section5  .features-list {
+        flex-direction: column; /* Stack the items vertically */
+        align-items: center; /* Center align the items */
+    }
+    
+    #section5 .features-list li {
+        width: 90%; /* Adjust width to take up more space on mobile */
+        margin-bottom: 20px; /* Add some space between the items */
+     }
+    
+     #section5 .features-list li p:last-of-type{
+        width: 80%;
+     }
+
+      /* FOOTER */
+    footer {
+        flex-direction: column; /* Stacks the footer content vertically */
+        align-items: center; /* Centers the content horizontally */
+        text-align: center; /* Centers the text */
+    }
+
+    footer ul {
+        text-align: center; /* Centers the list items */
+        margin-right: 0; /* Removes right margin */
+        margin-bottom: 20px; /* Adds some space between each list */
+    }
+
+    footer ul p {
+        margin-bottom: 15px; /* Adjusts spacing below section titles */
+    }
+
+    footer ul li {
+        margin: 10px 0; /* Increases spacing between list items */
+    }
+
+    .line-divider {
+        margin: 20px auto; /* Centers the divider line */
+    }
+
+    .copyright {
+        font-size: 12px; /* Adjusts font size for mobile readability */
+        padding-top: 20px; /* Adds top padding */
+    }
+}

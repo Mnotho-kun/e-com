@@ -1,0 +1,1133 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Signika:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika';
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body cover full height */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    background: url(/background/Model-bg-1.avif) no-repeat center center fixed; /* Fixed background image */
+    background-size: cover;
+}
+
+.wrapper {
+    min-height: 100vh;
+   /* Cover the entire section */
+    color: #fff; /* Change text color to white */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+nav ul {
+    display: flex;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start; /* Align links to the left */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo .one {
+    font-size: 0.8em;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons ion-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust icon color */
+}
+
+.search, .bag {
+    color: #fff;
+}
+
+.cart-icon-container {
+    position: relative; /* Container for positioning the cart count */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.cart-icon-container .bag {
+    font-size: 1.5em; /* Adjust size if needed */
+}
+
+.search-container {
+    position: relative; /* Container for positioning the search input and icon */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    z-index: 10; /* Ensure the input is above other elements */
+}
+
+.search-container.active .search-input {
+    width: 200px; /* Adjust width as needed */
+    opacity: 1;
+}
+
+.search {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff; /* Default color */
+    transition: color 0.3s ease; /* Smooth color transition */
+    position: absolute;
+    right: 0.5em; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+}
+
+.menu,
+.close {
+    display: none; /* Hide menu and close icons */
+}
+
+.search-container.active .search {
+    color: rgb(0, 0, 0); /* Color when active */
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Sidebar starts hidden off-screen */
+    width: 400px;
+    height: 100%;
+    background-color: #f4f4f4;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.5s ease-in-out; /* Smooth transition for sliding */
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+    color: #000;
+}
+
+.sidebar.visible {
+    right: 0; /* Slide the sidebar into view */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#close-sidebar {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Cart sidebar styles */
+.cart-sidebar {
+    margin-top: 20px; /* Add margin to prevent overlap with header */
+    overflow-y: auto; /* Allow scrolling for cart items */
+    padding: 10px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    max-height: calc(100vh - 100px); /* Adjust to fit within sidebar height */
+}
+
+/* Cart item styling */
+.cart-item {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.cart-item-image {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.cart-item-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-name {
+    font-weight: bold;
+}
+
+.cart-item-size,
+.cart-item-price,
+.cart-item-quantity {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Subtotal section styling */
+.cart-subtotal {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for the remove icon */
+.remove-icon {
+    font-size: 16px; /* Adjust the size as needed */
+    color: red; /* Change the color if needed */
+    cursor: pointer;
+    margin-left: auto; /* Pushes the icon to the right */
+    display: inline-block;
+}
+
+.remove-icon:hover {
+    color: darkred; /* Change color on hover for better UX */
+}
+
+.view-cart-section {
+    padding: 10px;
+    text-align: center;
+}
+
+.view-cart-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; /* Or any other color you prefer */
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+    border: 1px solid #000;
+    transition: .5s ease;
+}
+
+.view-cart-button:hover {
+    background-color: #000000; /* A darker shade for hover effect */
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .icons {
+        display: none;
+    }
+    
+    .menu {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        margin-right: 10px;
+    }
+    
+    .close {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-links {
+        position: fixed; /* Fixed positioning for full-page coverage */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw; /* Full viewport width */
+        background-color: #333; /* Background color */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        padding: 0;
+        box-sizing: border-box; /* Ensure padding is included in width */
+        transform: translateX(-100%); /* Initially off-screen */
+        transition: transform 0.3s ease;
+        z-index: 14;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .menu,
+    .close {
+        z-index: 10;
+    }
+
+
+    #section1 .banner-text {
+        height: auto; /* Remove fixed height for better adaptation */
+        padding: 20px; /* Add padding for smaller screens */
+        
+    }
+
+    #section1 .banner-text h1 {
+        font-size: 3em; /* Smaller font size for mobile */
+        font-weight: 100;
+    }
+
+    #section1 .banner-text p {
+        font-size: 1em; /* Adjust font size for mobile */
+        padding: 0 10px; /* Add horizontal padding for better readability */
+    }
+
+    #section1 button {
+        font-size: 14px; /* Smaller font size for mobile */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+
+
+    /* SECTION 2 */
+    .product-list .image-container img {
+       width: 90%;
+       height: 80%;
+    }
+
+    .product-list .description{
+    font-size: .8em;
+    }
+
+    .product-list li {
+        flex: 1 1 calc(50% - 10px); /* Three items per row on medium screens */
+    }
+    .product-list {
+        justify-content: center; /* Center items on smaller screens */
+    }
+
+    /* SECTION 3 */
+    #section3 .image-right img, p{
+        display: flex;
+        align-items: center; /* Vertically center the content */
+        justify-content: center; /* Push content to the right */
+        margin: auto;
+        text-align: center;
+    }
+
+    #section3 .image-right p{
+        font-size: 1.6em;
+    }
+
+
+
+
+    
+    /* SEECTION 4 */
+
+    #section4 .text-half {
+        align-items: flex-start; /* Align items to the top */
+        justify-content: flex-start; /* Align items to the top */
+        padding: 20px; /* Adjust padding if needed */
+    }
+
+   #section4 .text-half h1 {
+     /* Remove bottom margin */
+    padding-bottom: 0; /* Remove bottom padding if any */
+    margin-bottom: 0;
+    
+}
+
+#section4 .text-half p:first-of-type{
+    margin-left: 0;
+}
+
+   #section4 .text-half p:last-of-type , #section4 .text-half .btn{
+    margin-top: 0;/* Remove top margin */
+    margin-bottom: auto;
+    padding-top: 0; /* Remove top padding if any */
+    padding-bottom: 0; /* Remove bottom padding if any */
+    width: 80%;
+    font-size: .9em;
+    text-align: left;
+    margin-left: 0px;
+}
+
+#section4 .text-half .btn{
+    align-self: flex-start;
+    margin-top: -70px;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+
+
+/* SECTION 5 */
+
+    #section5 .img-left{
+        display: flex;
+        justify-content: center; /* Aligns content to the left */
+        align-items: center; 
+        text-align: left;
+        flex-direction: column;
+    }
+
+   #section5 .img-left img{
+    width: 80%;
+    z-index: 10;
+   }
+
+   
+   #section5 .img-left p{
+    width: 90%;
+    text-align: left;
+    margin-left: 50px;
+   }
+
+   #section5 .img-left p:last-of-type{
+    text-align: left;
+    font-size: .9em;
+    width: 80%;
+    padding-bottom: 20px;
+   }
+
+   #section5 .img-left .btn{
+    margin-left: -10px;
+   }
+
+
+   /* SECTION 7 */
+   #section7 p{
+    font-size: 1em;
+   }
+
+
+   /* SECTION 8 */
+   #section8  .features-list {
+    flex-direction: column; /* Stack the items vertically */
+    align-items: center; /* Center align the items */
+}
+
+#section8 .features-list li {
+    width: 90%; /* Adjust width to take up more space on mobile */
+    margin-bottom: 20px; /* Add some space between the items */
+ }
+
+ #section8 .features-list li p:last-of-type{
+    width: 80%;
+ }
+
+
+ /* SECTION 9 */
+ #section9 {
+    padding-top: 50px; /* Adjust top padding for mobile view */
+    padding-bottom: 80px; /* Adjust bottom padding for mobile view */
+}
+
+#section9 .text-right {
+    max-width: 90%; /* Set a flexible width for the text container */
+    margin: 0 10px; /* Adjust margins for better centering on smaller screens */
+    padding: 10px; /* Adjust padding for mobile view */
+    text-align: left; /* Keep text aligned to the left */
+}
+
+#section9 .text-right p {
+    margin: 8px 0; /* Adjust spacing between paragraphs */
+    font-size: 1.1em; /* Reduce font size slightly for mobile readability */
+    text-align: left;
+}
+
+#section9 .text-right p:nth-child(2) {
+    font-size: 1.8em; /* Adjust font size for the middle paragraph */
+    text-align: left;
+}
+
+#section9 .text-right button {
+    
+    margin-top: 15px; /* Increase margin above the button */
+    padding: 12px; /* Adjust padding inside the button */
+}
+
+/* FOOTER */
+footer {
+    flex-direction: column; /* Stacks the lists vertically */
+    align-items: flex-start; /* Aligns items to the left */
+}
+
+footer ul {
+    width: 100%; /* Makes each list take the full width */
+    margin-right: 0; /* Removes right margin */
+    padding-bottom: 20px; /* Adjusts bottom padding */
+}
+
+footer ul li{
+    text-align: center;
+}
+
+.line-divider {
+    margin: 20px 0; /* Keeps margin consistent on mobile */
+}
+}
+
+
+/* Section 1 */
+
+#section1 .banner-text {
+    display: flex;
+    flex-direction: column; /* Stack text and button vertically */
+    justify-content: center; /* Center vertically within the remaining space */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text horizontally */
+    height: calc(100vh - 60px); /* Adjust height based on nav height (60px) */
+    margin-top: 60px; /* Adjust top margin to account for nav height */
+    padding: 0 20px; /* Add horizontal padding to ensure text doesn't touch the edges */
+}
+
+#section1 .banner-text h1, #section1 .banner-text p {
+    margin: 0;
+    line-height: 1.4; /* Adjust line height for better readability */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Break long words to avoid overflow */
+   
+}
+
+#section1 .banner-text h1 {
+    font-size: 3.9rem; /* Adjust as needed */
+    max-width: 100%;
+}
+
+
+#section1 .banner-text p {
+    color: #fff; /* White text color */
+}
+
+
+#section1 button {
+    background-color: transparent; /* Adjust button color as needed */
+    border: 1px solid #fff;
+    color: #fff; /* White text color on button */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+#section2 {
+    background-color: white; /* Set the background color to white */
+    padding: 40px 20px; /* Add padding for spacing */
+}
+
+#section2 h1 {
+    text-align: center; /* Center-align the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    color: #000;
+    font-size: 3.2em;
+}
+
+.product-list {
+    display: flex; /* Use flexbox to align items in a row */
+    justify-content: space-around; /* Space out the items evenly */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line if necessary */
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.product-list li {
+    position: relative;
+    width: 22%; /* Adjust the width of each item (adjust as needed) */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width */
+    margin-bottom: 20px; /* Space below each item */
+    text-align: center; /* Center-align text */
+}
+
+.product-list img {
+    max-width: 100%; /* Ensure images scale to fit their containers */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove inline spacing issues */
+    margin: 0 auto; /* Center-align images */
+}
+
+.product-list p, .product-list a {
+    margin: 5px 0; /* Space between text elements */
+    color: #000;
+}
+
+.product-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: #000; /* Set link color (adjust as needed) */
+}
+
+.product-list .two{
+    color: #d3d3d3;
+}
+
+
+.bag-handle {
+    position: absolute; /* Absolute positioning within the list item */
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background-color: rgb(255, 255, 255); /* White background color */
+    padding: 5px; /* Space around the icon */
+    border-radius: 50%; /* Make the background circular */
+    color: #000000; /* Icon color (adjust as needed) */
+    font-size: 24px; /* Adjust icon size */
+    display: none; /* Initially hide the icon */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition for visibility */
+}
+
+.product-list li:hover .bag-handle {
+    display: block; /* Show the icon when hovering over the list item */
+    opacity: 1; /* Fully visible on hover */
+    visibility: visible; /* Ensure the icon is clickable */
+
+}
+
+.measurements,
+.color-choices  {
+    display: flex; /* Align boxes in a row */
+    justify-content: center; /* Center the boxes */
+    margin-top: 10px; /* Space above the measurement boxes */
+}
+
+.measurement-box  {
+    background-color: #ffffff; /* Light background color */
+    border: 1px solid #ddd; /* Border color */
+    color: #000; /* Text color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 5px 10px; /* Padding inside the boxes */
+    margin: 0 5px; /* Space between the boxes */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s ease, color 0.3s ease, outline 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.measurement-box:hover,
+.color-box:hover,
+.measurement-box:focus,
+.color-box:focus {
+    background-color: #ffffff; /* Darker background on hover */
+    outline: 1px solid black; /* Black outline on focus */
+    outline-offset: 2px; /* Space between the outline and the box */
+}
+
+.color-box {
+    width: 20px; /* Size of the color boxes */
+    height: 20px; /* Size of the color boxes */
+    border-radius: 50%; /* Circular color boxes */
+    border: 1px solid #ddd; /* Border color */
+    margin: 0 8px; /* Increased spacing between color boxes */
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.color-box:focus, .color-box:hover {
+    border-color: #000; /* Outline on focus or hover */
+}
+
+.color-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Adjust color as needed */
+}
+
+#color-picker {
+    width: 60px; /* Adjust width as needed */
+    height: 20px; /* Adjust height as needed */
+    padding: 0; /* Remove default padding */
+    border: none; /* Remove default border */
+    -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+}
+
+
+
+.image-container {
+    position: relative; /* To position the overlay on top of the image */
+    display: inline-block; /* Keep the image and overlay together */
+}
+
+.model-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Section 3 */
+#section3 {
+    position: relative;
+    min-height: 100vh; /* Ensure section is full height */
+    background: url('/background/Model-bg-2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 60px 20px; /* Adjust padding for spacing */
+    color: #fff; /* Ensure text is visible over the background */
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    justify-content: flex-end; /* Push content to the right */
+}
+
+.image-right {
+    text-align: left;
+    max-width: 300px; /* Adjust width as needed */
+    position: relative;
+    right: 20px; /* Pull the entire div slightly to the left */
+}
+
+.image-right img {
+    max-width: 100%; /* Ensure image scales correctly */
+    height: auto;
+    margin-left: -20px;
+}
+
+.image-right p {
+    font-size: 2rem;
+    margin: 20px 0;
+    width: 100%;
+    margin-left: -10px;
+}
+
+.image-right .btn {
+    background-color: transparent; /* No background color */
+    border: 1px solid #fff;
+    color: #fff; /* White text color on button */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Add space between the button and the text */
+    display: inline-block;
+    margin-left: 60px;
+}
+
+#section4 {
+    display: flex;
+    height: 100vh;
+    background: url('/background/Model-bg-3.webp') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.text-half, .image-half {
+    flex: 1;
+    height: 100%;
+}
+
+.text-half {
+    background-color: #fff;
+    padding: 40px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width calculation */
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-half p:first-of-type {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.text-half h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.text-half p:last-of-type {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    width: 90%;
+}
+
+.text-half .btn {
+    background-color: #ffffff;
+    border: none;
+    color: #000000;
+    padding: 20px 20px;
+    margin-top: -10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-block;
+    border: 1px solid #000;
+    width: 180px;
+    transition: .5s ease;
+}
+
+.text-half .btn:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.image-half {
+    position: relative; /* Allows the image to fill the container */
+}
+
+.image-half img {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+}
+
+#section5 {
+    display: flex;
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: center; /* Center aligns items vertically */
+    background: url(/background/Model-bg-3.webp) no-repeat center center fixed;
+    background-size: cover;
+    padding-bottom: 90px;
+}
+
+.img-left {
+    margin-left: 0; /* Ensure there's no extra margin on the left */
+}
+
+.img-left img {
+    max-width: 100%; /* Adjusts the width of the image to fit its container */
+    height: auto; /* Maintains the aspect ratio */
+    max-width: 400px; /* Sets a maximum width for the image (adjust as needed) */
+    display: block; /* Ensures the image doesn't have extra spacing below it */
+    margin-top: -90px;
+    margin-left: 30px;
+}
+
+.img-left p:first-of-type{
+    font-size: 1.8em;
+    width: 50%;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+.img-left p:last-of-type{
+    margin-left: 30px;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.img-left button{
+    margin-left: 30px;
+    padding: 15px 10px;
+    width: 150px;
+    transition: .5s ease;
+}
+
+.img-left button:hover{
+    background: #fff;
+    color: #000;
+
+}
+
+#section6{
+    background-color: #fff;
+    
+    background-size: cover;
+    padding-top: 150px;
+    padding-bottom: 120px;
+}
+
+#section6 h1{
+    text-align: center;
+    font-size: 3.6em;
+    margin-bottom: 30px;
+    color: #000;
+}
+
+#section7{
+    background: url(/background/Models-bg-7.avif) no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 130px;
+    padding-bottom: 150px;
+}
+
+#section7 .containers {
+    display: flex; /* Use Flexbox for centering */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    text-align: center; /* Center the text within the container */
+    height: 100%; /* Set a height for proper vertical centering */
+    padding: 20px; /* Add padding for spacing */
+}
+
+#section7 .stars {
+    margin-bottom: 20px; /* Add some spacing between stars and the text */
+}
+
+#section7 .stars ion-icon {
+    font-size: 24px; /* Adjust star size */
+    color: #f0c771; /* Set star color */
+    margin: 0 5px; /* Add margin between stars */
+}
+
+.containers p:first-of-type{
+    font-size: 2em;
+    width: 70%;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+
+#section8{
+    background-color: #fff;
+    padding-bottom: 50px;
+}
+
+.features-list {
+    display: flex; /* Use Flexbox to align items horizontally */
+    list-style: none; /* Remove default list styling */
+    padding: 0; /* Remove padding from the ul */
+    margin: 0; /* Remove margin from the ul */
+    justify-content: space-evenly;
+    align-items: flex-start; /* Align items at the top */
+    gap: 10px; /* Add smaller space between items */
+    padding-top: 30px;
+    width: 100%;
+}
+
+.features-list li {
+    display: flex; /* Use Flexbox for internal layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items within each li */
+    text-align: center; /* Center the text */
+    width: 200px; /* Set a fixed width for consistency */
+    padding: 20px; /* Add padding around each li */
+    border-radius: 8px; /* Add rounded corners */
+}
+
+.features-list li ion-icon {
+    font-size: 40px; /* Adjust icon size */
+    color: #000000; /* Set icon color */
+    margin-bottom: 10px; /* Add space below the icon */
+}
+
+.features-list li p {
+    margin: 10px -50px; /* Add space between paragraphs */
+    color: #000;
+}
+
+.features-list li p:first-of-type{
+    width: 100%;
+    font-size: 2.3em;
+}
+
+.features-list li p:last-of-type{
+    color: #aaa8a8;
+}
+
+#section9{
+    background: url(/background/Models-bg-8.jpg) no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 100px; /* Adds top padding to push content down */
+    padding-bottom: 120px; /* Optional: Adds some bottom padding for spacing */
+    position: relative; /* Ensures that the padding affects the content layout */
+}
+
+.text-right {
+    text-align: left; /* Aligns text inside the div to the left */
+    margin-left: auto; /* Keeps the div aligned to the right of the section */
+    padding: 20px; /* Adds padding for spacing */
+    max-width: 500px; /* Sets a maximum width for the div */
+}
+
+.text-right p {
+    margin: 10px 0; /* Adds spacing between paragraphs */
+    display: inline-block;
+}
+
+
+
+.text-right p:nth-child(2) {
+    font-size: 2.5em; /* Increases the font size of the middle paragraph */
+    font-weight: bold; /* (Optional) Makes the text bold for emphasis */
+  
+}
+
+
+.text-right button {
+    margin-top: 10px; /* Adds spacing above the button */
+    padding: 15px 10px; /* Adds padding inside the button */ /* Button background color */
+     /* Button text color */
+    cursor: pointer; /* Changes cursor on hover */
+    width: 150px;
+    transition: .5s ease;
+    border: 1px solid #ffffff;
+    color: #000;
+    background: #fff;
+}
+
+.text-right button:hover{
+    background: transparent;
+    color: #000000;
+    border: 1px solid #ffffff;
+}
+
+footer {
+    display: flex; /* Make the footer a flex container */
+    justify-content: space-between; /* Evenly space out the child elements */
+    flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+    padding: 20px; /* Adds some padding around the footer */
+    background-color: #f8f8f8; /* Optional: Footer background color */
+    width: 100%;
+    padding-top: 60px;
+}
+
+footer ul {
+    list-style-type: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    text-align: left; /* Aligns text to the left */
+    flex: 1; /* Allows each list to take up equal space */
+    min-width: 150px; /* Sets a minimum width for each list */
+    margin-right: 12.3%;
+    padding-bottom: 30px;
+}
+
+footer ul p {
+    font-weight: bold; /* Makes section titles bold */
+    margin-bottom: 25px; /* Adds spacing below section titles */
+    color: #000;
+}
+
+footer ul li {
+    margin: 5px 0; /* Adds vertical spacing between list items */
+}
+
+footer ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #bbbbbb; /* Text color for links */
+    transition: .5s ease;
+}
+
+footer ul li a:hover {
+    color: #272727; /* Changes link color on hover */
+}
+
+.line-divider {
+    height: 1px; /* Sets the height of the line */
+    background-color: #ccc; /* Sets the color of the line (gray) */
+    margin: 20px 0; /* Adds vertical spacing around the line */
+    width: 100%; /* Makes the line span the full width of its container */
+}
+
+.copyright {
+    text-align: center; /* Centers the text within the <p> tag */
+    margin: auto; /* Removes default margin */
+    padding: 10px 0; /* Adds padding above and below the text */
+    color: #333; /* Sets the text color */
+    font-size: 14px; /* Sets a reasonable font size for the copyright text */
+
+}
+
+/* Assuming the height of your navbar is 60px */
+.voice-command-avatar {
+    position: fixed;
+    top: calc(10px + 60px); /* Adjusted to start below the navbar */
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab; /* Show pointer cursor to indicate it's clickable */
+    z-index: 1000;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .voice-command-avatar:active {
+    cursor: grabbing; /* Change to grabbing while dragging */
+}
+
+
+  .voice-command-avatar img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .ripple-effect {
+    position: absolute;
+    border: 2px solid rgba(0, 183, 255, 0.5);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    animation: ripple 1.5s infinite;
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(0.8);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  

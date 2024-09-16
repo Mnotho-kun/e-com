@@ -1,0 +1,648 @@
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&family=Signika:wght@300..700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Signika';
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Ensure html and body cover full height */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body{
+    background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), /* Gradient overlay */
+    url(/background/Model-bg-10.jpg) no-repeat center center; /* Center and cover background image */
+background-size: cover;
+}
+   
+
+.wrapper {
+    min-height: 100vh;
+   /* Cover the entire section */
+    color: #fff; /* Change text color to white */
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    width: 100%;
+    overflow-y: auto; /* Allow vertical scrolling if needed */
+    position: relative;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+nav ul {
+    display: flex;
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start; /* Align links to the left */
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust text color as needed */
+    font-weight: bold;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.logo p {
+    margin: 0;
+}
+
+.logo .one {
+    font-size: 0.8em;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icons ion-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust icon color */
+}
+
+.search, .bag {
+    color: #fff;
+}
+
+.cart-icon-container {
+    position: relative; /* Container for positioning the cart count */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.cart-icon-container .bag {
+    font-size: 1.5em; /* Adjust size if needed */
+}
+
+.search-container {
+    position: relative; /* Container for positioning the search input and icon */
+    display: inline-block; /* Ensure it only takes up as much space as necessary */
+}
+
+.search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.3s ease, opacity 0.3s ease; /* Smooth transition for width and opacity */
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    z-index: 10; /* Ensure the input is above other elements */
+}
+
+.search-container.active .search-input {
+    width: 200px; /* Adjust width as needed */
+    opacity: 1;
+}
+
+.search {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #ffffff; /* Default color */
+    transition: color 0.3s ease; /* Smooth color transition */
+    position: absolute;
+    right: 0.5em; /* Position inside the input field */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 11;
+}
+
+.menu,
+.close {
+    display: none; /* Hide menu and close icons */
+}
+
+.search-container.active .search {
+    color: rgb(0, 0, 0); /* Color when active */
+}
+
+
+#section1 {
+    position: relative; /* Ensure the text is positioned relative to the section */
+   
+    width: 100%;
+    height: 100vh; /* Adjust height as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    color: white; /* Text color for contrast, adjust as needed */
+    text-align: center; /* Center text alignment */
+}
+
+#section1 h1{
+    font-size: 4.7em;
+}
+
+
+#section1 h1 {
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+    
+}
+
+#section2{
+    background-color: #fff;
+    width: 100%;
+    padding: 20px; /* Adjust padding as needed */
+    padding-top: 50px;
+    box-sizing: border-box;
+    padding-bottom: 100px;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+   
+    gap: 100px; /* Add space between the text-left and text-right divs */
+}
+
+
+.text-left, .text-right {
+    flex: 1; /* Both divs will take up equal space */
+    min-width: 0; /* Prevent flex children from shrinking below their content */
+}
+
+.text-left {
+    flex: 1; /* Allow text-left to take available space */
+    text-align: left;
+    color: #000;
+    font-size: 3em;
+    word-wrap: break-word; 
+    margin-left: 30px;
+}
+
+.text-right {
+    flex: 1.3; /* Allow text-right to take more space */
+    text-align: left;
+    color: #000;
+    width: 90%;
+}
+
+.text-right p {
+    margin-bottom: 20px; /* Adjust the spacing between paragraphs */
+    
+}
+
+.text-right p:last-child {
+    margin-bottom: 0; /* Remove margin for the last paragraph to avoid extra space at the bottom */
+    color: #ccc;
+}
+
+
+.line-divider {
+    width: 100%;
+    height: 1px; /* Thickness of the divider */
+    background-color: #ccc;
+    margin: 0px; /* Color of the divider, adjust as needed *//* Space above and below the divider, adjust as needed */
+}
+
+#section3{
+    background-color: #fff;
+    padding: 20px; /* Optional: adds padding inside the section */
+    text-align: left; /* Aligns text to the left */
+    padding-top: 140px;
+    padding-bottom: 90px;
+}
+
+#section3 p {
+    margin-bottom: 20px; /* Adjust spacing between paragraphs as needed */
+    color: #000000;
+}
+
+#section3 .highlight-text {
+    font-size: 3em; /* Adjust the font size as needed */
+    width: 100%;
+}
+
+#section4{
+    background: url(/background/Model-bg-12.jpg) no-repeat center center fixed; /* Fixed background image */
+    background-size: cover;
+    padding: 20px; /* Optional: adds padding inside the section */
+    padding-top: 150px;
+    padding-bottom: 90px;
+}
+
+
+#section4 .container-1 {
+    max-width: 800px; /* Optional: limits the width of the container */
+    margin: 0 auto; /* Centers the container horizontally */
+    text-align: left; /* Aligns text to the left */
+    margin-right: 600px;
+    width: 53%; 
+}
+
+#section4 p {
+    margin-bottom: 20px; /* Adds bottom spacing between paragraphs */
+    line-height: 1.6; /* Ensures proper line spacing for readability */
+}
+
+#section4 .highlight-text {
+    font-size: 3.3em; /* Makes the middle paragraph text larger */
+    margin-bottom: 20px; /* Ensures consistent spacing below this paragraph */
+}
+
+#section5{
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 150px;
+}
+
+#section5 .container-0 {
+    display: flex;
+    flex-direction: column; /* Aligns children vertically */
+    gap: 30px; /* Adds space between .container-1 and .container-2 */
+}
+
+#section5 .container-1{
+    margin-left: 30px;
+}
+
+#section5 .container-1 p:nth-child(2){
+    font-size: 3em;
+}
+
+#section5 .container-2 {
+    display: flex;
+    justify-content: space-between; /* Distributes space between text-left and text-right */
+}
+
+
+#section5 p {
+    margin-bottom: 20px; /* Adds bottom spacing between paragraphs */
+    line-height: 1.6; /* Ensures proper line spacing for readability */
+}
+
+#section5 p:nth-of-type(1) {
+    /* Styling for the first paragraph outside the container */
+    color: #000;
+}
+
+#section5 p:nth-of-type(2) {
+    color: #000;
+}
+
+#section5 .container-2 {
+    display: flex;
+    justify-content: space-between; /* Distributes space between the text-left and text-right divs */
+    margin-top: 20px; /* Adds spacing above the container */
+}
+
+#section5 .text-left {
+    flex: 1; /* Allows the text-left div to take up available space */
+    margin-right: 20px; /* Adds spacing between the text-left and text-right divs */
+}
+
+#section5 .text-right {
+    flex: 1; /* Allows the text-right div to take up available space */
+    text-align: left; /* Aligns text to the right within the text-right div */
+}
+
+#section5 .text-left p, .text-right p {
+    margin-bottom: 20px; /* Adds bottom spacing between paragraphs inside text-left and text-right divs */
+    color: #000;
+}
+
+#section5 .text-left p {
+    text-align: left; /* Ensures text in the text-left div is aligned to the left */
+    font-size: .4em;
+}
+
+#section5 .text-right p {
+    text-align: left; /* Ensures text in the text-right div is aligned to the right */
+}
+
+#section5 .text-right p.highlight-text{
+    font-size: 1em;
+}
+
+#section6{
+    background: url(/background/Models-bg-8.jpg) no-repeat center center fixed;
+    background-size: cover;
+    padding-top: 100px; /* Adds top padding to push content down */
+    padding-bottom: 120px; /* Optional: Adds some bottom padding for spacing */
+    position: relative; /* Ensures that the padding affects the content layout */
+}
+
+#section6 .text-right {
+    text-align: left; /* Aligns text inside the div to the left */
+    margin-left: auto; /* Keeps the div aligned to the right of the section */
+    padding: 20px; /* Adds padding for spacing */
+    max-width: 500px; /* Sets a maximum width for the div */
+}
+
+#section6 .text-right p {
+    margin: 10px 0; /* Adds spacing between paragraphs */
+    display: inline-block;
+    color: #fff;
+}
+
+
+
+#section6 .text-right p:nth-child(2) {
+    font-size: 2.5em; /* Increases the font size of the middle paragraph */
+    font-weight: bold; /* (Optional) Makes the text bold for emphasis */
+  
+}
+
+
+#section6 .text-right button {
+    margin-top: 10px; /* Adds spacing above the button */
+    padding: 15px 10px; /* Adds padding inside the button */ /* Button background color */
+     /* Button text color */
+    cursor: pointer; /* Changes cursor on hover */
+    width: 150px;
+    transition: .5s ease;
+    border: 1px solid #ffffff;
+    color: #000;
+    background: #fff;
+}
+
+#section6 .text-right button:hover{
+    background: transparent;
+    color: #000000;
+    border: 1px solid #ffffff;
+}
+
+footer {
+    display: flex; /* Make the footer a flex container */
+    justify-content: space-between; /* Evenly space out the child elements */
+    flex-wrap: wrap; /* Allows wrapping to the next line if needed */
+    padding: 20px; /* Adds some padding around the footer */
+    background-color: #f8f8f8; /* Optional: Footer background color */
+    width: 100%;
+    padding-top: 60px;
+}
+
+footer ul {
+    list-style-type: none; /* Removes bullet points */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    text-align: left; /* Aligns text to the left */
+    flex: 1; /* Allows each list to take up equal space */
+    min-width: 150px; /* Sets a minimum width for each list */
+    margin-right: 12.3%;
+    padding-bottom: 30px;
+}
+
+footer ul p {
+    font-weight: bold; /* Makes section titles bold */
+    margin-bottom: 25px; /* Adds spacing below section titles */
+    color: #000;
+}
+
+footer ul li {
+    margin: 5px 0; /* Adds vertical spacing between list items */
+}
+
+footer ul li a {
+    text-decoration: none; /* Removes underline from links */
+    color: #bbbbbb; /* Text color for links */
+    transition: .5s ease;
+}
+
+footer ul li a:hover {
+    color: #272727; /* Changes link color on hover */
+}
+
+ .line-divider {
+    height: 1px; /* Sets the height of the line */
+    background-color: #ccc; /* Sets the color of the line (gray) */
+    margin: 20px 0; /* Adds vertical spacing around the line */
+    width: 100%; /* Makes the line span the full width of its container */
+}
+
+.copyright {
+    text-align: center; /* Centers the text within the <p> tag */
+    margin: auto; /* Removes default margin */
+    padding: 10px 0; /* Adds padding above and below the text */
+    color: #333; /* Sets the text color */
+    font-size: 14px; /* Sets a reasonable font size for the copyright text */
+
+}
+
+
+/* RESPONSIVE VIEW */
+
+@media (max-width: 768px){
+    .icons {
+        display: none;
+    }
+    
+    .menu {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        margin-right: 10px;
+    }
+    
+    .close {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #ffffff;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    .nav-links {
+        position: fixed; /* Fixed positioning for full-page coverage */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw; /* Full viewport width */
+        background-color: #333; /* Background color */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center items horizontally */
+        justify-content: center; /* Center items vertically */
+        padding: 0;
+        box-sizing: border-box; /* Ensure padding is included in width */
+        transform: translateX(-100%); /* Initially off-screen */
+        transition: transform 0.3s ease;
+        z-index: 14;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .nav-links.show {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .menu,
+    .close {
+        z-index: 10;
+    }
+
+    /* SECTION 2 */
+    #section2 .container {
+        flex-direction: column; /* Stacks the content vertically on mobile */
+        gap: 20px; /* Adjusts spacing between stacked elements */
+    }
+
+    .text-left {
+        font-size: 2em; /* Adjusts font size for mobile */
+        margin-left: 0; /* Removes extra margin on mobile */
+        padding-bottom: 20px; /* Adds padding below to separate sections */
+    }
+
+    .text-right {
+        width: 100%; /* Takes full width on mobile */
+        margin-left: 0; /* Aligns to the left without extra margin */
+    }
+
+    /* SECTION 3 */
+    #section3 {
+        padding: 20px 15px; /* Adjust padding for smaller screens */
+        padding-top: 80px; /* Reduces top padding */
+        padding-bottom: 60px; /* Reduces bottom padding */
+    }
+
+    #section3 p {
+        font-size: 1em; /* Standard font size for paragraphs on mobile */
+    }
+
+    #section3 .highlight-text {
+        font-size: 1.5em; /* Adjusts font size of the highlighted text for mobile */
+        margin-bottom: 15px; /* Slightly reduces spacing below highlighted text */
+        line-height: 1.3; /* Increases line height for readability */
+    }
+
+    /* SECTION 4 */
+    #section4 {
+        padding: 20px 15px; /* Adjusts padding for smaller screens */
+        padding-top: 80px; /* Reduces top padding */
+        padding-bottom: 60px; /* Reduces bottom padding */
+       
+    }
+
+    #section4 .container-1 {
+        margin-right: 0; /* Removes right margin for full-width display */
+        width: 100%; /* Container takes full width on smaller screens */
+        max-width: 100%; /* Ensures the container adapts to smaller screens */
+    }
+
+    #section4 p {
+        font-size: 1em; /* Standard font size for paragraphs on mobile */
+    }
+
+    #section4 .highlight-text {
+        font-size: 1.5em; /* Adjusts font size of the highlighted text for mobile */
+        line-height: 1.4; /* Line height adjustment for readability */
+    }
+
+    /* SECTION 5 */
+    #section5 {
+        padding: 20px 15px; /* Adjusts padding for smaller screens */
+        padding-top: 80px; /* Reduces top padding */
+        padding-bottom: 60px; /* Reduces bottom padding */
+    }
+
+
+    #section5 .container-2 {
+        flex-direction: column; /* Stacks the text-left and text-right divs vertically */
+        gap: 20px; /* Adds spacing between stacked divs */
+    }
+
+    #section5 .text-left, 
+    #section5 .text-right {
+        margin-right: 0; /* Removes right margin */
+        flex: 1; /* Both divs take full width */
+    }
+
+    #section5 .container-1 p:nth-child(2) {
+        font-size: 1.5em; /* Adjust font size for mobile readability */
+    }
+
+    #section5 .text-left p {
+        font-size: .6em; /* Adjusts text size for mobile */
+    }
+
+    #section5 .text-right p {
+        font-size: 1em; /* Adjusts text size for mobile */
+    }
+
+    #section5 .text-right p.highlight-text {
+        font-size: 1em; /* Adjusts highlighted text size for emphasis on mobile */
+        line-height: 1.4; /* Line height adjustment for readability */
+    }
+
+    /* FOOTER */
+    footer {
+        flex-direction: column; /* Stacks the footer content vertically */
+        align-items: center; /* Centers the content horizontally */
+        text-align: center; /* Centers the text */
+    }
+
+    footer ul {
+        text-align: center; /* Centers the list items */
+        margin-right: 0; /* Removes right margin */
+        margin-bottom: 20px; /* Adds some space between each list */
+    }
+
+    footer ul p {
+        margin-bottom: 15px; /* Adjusts spacing below section titles */
+    }
+
+    footer ul li {
+        margin: 10px 0; /* Increases spacing between list items */
+    }
+
+    .line-divider {
+        margin: 20px auto; /* Centers the divider line */
+    }
+
+    .copyright {
+        font-size: 12px; /* Adjusts font size for mobile readability */
+        padding-top: 20px; /* Adds top padding */
+    }
+}
